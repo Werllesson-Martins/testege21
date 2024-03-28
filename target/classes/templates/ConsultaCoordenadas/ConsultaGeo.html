@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+<meta charset="utf-8"/>
+<meta name="author" content="Werllesson Santos Martins"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Consulta Coordenadas Geográficas Google</title>
+<style>
+    body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+    }
+    #form-container {
+        text-align: center;
+    }
+    .input-container {
+        margin-bottom: 10px;
+    }
+    .input-container label {
+        display: block;
+        margin-bottom: 5px;
+    }
+    input[type="text"] {
+        padding: 10px;
+        font-size: 16px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        width: 200px;
+    }
+    input[type="submit"] {
+        padding: 10px 20px;
+        font-size: 16px;
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+</style>
+</head>
+<body>
+<div id="form-container">
+    <form method="POST" th:object="${geo}" th:action="@{/consultaGeo/consultar}">
+    <input type="hidden" th:field="*{id}"/>
+    	<div class="input-container">
+            <label style="font-size: 22px" for="latitude">Latitude</label>
+            <input type="text" id="latitude" required="required" name="latitude" th:field="*{latitude}" placeholder="Digite a latitude...">
+        </div>
+        <div class="input-container">
+            <label style="font-size: 22px" for="longitude">Longitude</label>
+            <input type="text" id="longitude" required="required" name="longitude" autofocus="autofocus" th:field="*{longitude}" placeholder="Digite a longitude...">
+        </div>
+        
+        <input type="submit" value="Consultar"><br><br>
+        
+        <div class="input-container">
+            <label style="font-size: 12px" for="longitude" th:if="${retornoGoogle != null}" th:text="|${retornoGoogle}"></label>
+        </div>
+    </form>
+</div>
+</body>
+</html>

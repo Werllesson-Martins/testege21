@@ -1,0 +1,8 @@
+br/com/testege21/controller/GeoController.class
+br/com/testege21/repository/GeoRepository.class
+br/com/testege21/config/CorsConfiguration.class
+br/com/testege21/model/Geo.class
+br/com/testege21/Testege21Application.class
+br/com/testege21/config/CorsConfiguration$1.class
+br/com/testege21/config/SpringFoxConfig.class
+br/com/testege21/service/GeoService.class
