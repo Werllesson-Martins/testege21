@@ -38,7 +38,7 @@ public class GeoService {
 		try {
 			// URL para acesso ao serviço do Google
 			String url = "https://maps.googleapis.com/maps/api/geocode/json?latlng=" + latitude + "," + longitude
-					+ "&key=AIzaSyAtxmZ7Ce74W5V0tysKOqDBQ0h6ETSOFBw";
+					+ "&key={chave_do_google}";
 
 			HttpClient httpclient = new DefaultHttpClient();
 			HttpGet request = new HttpGet(url);
