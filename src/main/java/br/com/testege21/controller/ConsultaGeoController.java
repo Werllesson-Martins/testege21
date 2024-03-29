@@ -5,8 +5,9 @@ import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.fasterxml.jackson.databind.JsonNode;
@@ -24,14 +25,14 @@ public class ConsultaGeoController {
 
 	// Função/endPoint usado para renderizar o template da tela de consulta do
 	// usuário
-	@RequestMapping("/consultar")
+	@GetMapping("/consultar")
 	public ModelAndView novo(Geo geo) {
 		ModelAndView mv = new ModelAndView("ConsultaCoordenadas/ConsultaGeo");
 		return mv;
 	}
 
 	// Função/endPoint usado para exibir o retorno da consulta da api do Google
-	@RequestMapping(value = { "/consultar" }, method = RequestMethod.POST)
+	@PostMapping(value = { "/consultar" })
 	public ModelAndView consultaDadosGoogle(@Valid Geo geo, BindingResult result) {
 
 		ModelAndView mv = new ModelAndView("ConsultaCoordenadas/ConsultaGeo");
